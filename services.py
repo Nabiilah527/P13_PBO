@@ -37,3 +37,11 @@ class ShoppingCart:
     @property
     def total_price(self) -> float:
         return sum(item.subtotal for item in self._items.values())
+    
+class DebitCardPayment(IPaymentProcessor):
+    """Implementasi pembayaran kartu debit (Challenge Sesi 13)."""
+    
+    def process(self, amount: float) -> bool:
+        # Menampilkan log khusus untuk pembayaran kartu debit
+        LOGGER.info(f"Memproses pembayaran DEBIT CARD sejumlah: Rp{amount:,.0f}")
+        return True
